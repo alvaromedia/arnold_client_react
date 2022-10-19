@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+:root {
+  --primary-color: #fff;
+  --secondary-color: #000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* image properties */
+  background-color: #000;
+  background-image: url('https://images4.alphacoders.com/209/209148.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top;
+  /* else */
+  font-family: 'Kanit', sans-serif;
+}
+
+#root {
+  background-color: #b7b7b7;
+  max-width: 1200px;
+  opacity: 80%;
+  margin: 0 auto;
+}
