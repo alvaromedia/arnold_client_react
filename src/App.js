@@ -1,8 +1,9 @@
-import { render } from "react-dom";
-
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <h1>Arnold API</h1>
+    </div>
+  );
 };
-export default App;
 
-render(<App />, document.getElementById("root"));
+export default App;
