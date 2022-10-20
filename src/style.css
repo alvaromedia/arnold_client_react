@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 
 :root {
   --primary-color: #fff;
@@ -14,12 +14,12 @@
 body {
   /* image properties */
   background-color: #000;
-  background-image: url('https://images4.alphacoders.com/209/209148.jpg');
+  background-image: url("https://images4.alphacoders.com/209/209148.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: top;
   /* else */
-  font-family: 'Kanit', sans-serif;
+  font-family: "Kanit", sans-serif;
 }
 
 #root {
@@ -27,4 +27,12 @@ body {
   max-width: 1200px;
   opacity: 80%;
   margin: 0 auto;
+}
+
+.movie-card-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
