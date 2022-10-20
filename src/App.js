@@ -33,30 +33,34 @@ const App = () => {
 
   if (!movies.length) {
     return (
-      <div className="app-container">
+      <>
         <h1>ARNOLD API</h1>
-        <div>
-          <h2>There are no available movies to display</h2>
+        <div className="app-container">
+          <div>
+            <h2>There are no available movies to display</h2>
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="app-container">
+    <>
       <h1>ARNOLD API</h1>
-      {selectedMovie ? (
-        <MovieView selectedMovie={selectedMovie} onBackClick={onBackClick} />
-      ) : (
-        movies.map((movie) => (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-            onMovieClick={onMovieClick}
-          />
-        ))
-      )}
-    </div>
+      <div className="app-container">
+        {selectedMovie ? (
+          <MovieView selectedMovie={selectedMovie} onBackClick={onBackClick} />
+        ) : (
+          movies.map((movie) => (
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              onMovieClick={onMovieClick}
+            />
+          ))
+        )}
+      </div>
+    </>
   );
 };
 
