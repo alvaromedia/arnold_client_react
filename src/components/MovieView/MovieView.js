@@ -1,40 +1,53 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./MovieView.css";
 
-const MovieView = ({ selectedMovie, onBackClick }) => {
+const MovieView = () => {
+  const { id } = useParams();
+  const [movie, setMovie] = useState("");
+
+  const fetchMovie = async () => {
+    const res = await fetch(
+      `https://movierestapi-production.up.railway.app/api/movies/${id}`
+    );
+    const data = await res.json();
+
+    setMovie(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchMovie();
+  }, []);
+
   return (
-    <div className="movie-view-container">
-      <div className="movie-view-image-container">
-        <img
-          src={selectedMovie.imageUrl}
-          alt={`${selectedMovie.title} poster`}
-        />
-      </div>
-
-      {/* info */}
-      <div className="movie-view-info-container">
-        <div className="title-container">
-          <h1>Title</h1>
-          <span>{selectedMovie.title}</span>
+    movie && (
+      <div className="movie-view-container">
+        <div className="movie-view-image-container">
+          <img src={movie.imageUrl} alt={`${movie.title} poster`} />
         </div>
-        <div className="director-container">
-          <h3>Director</h3>
-          <span>{selectedMovie.director.name}</span>
+
+        <div className="movie-view-info-container">
+          <div className="title-container">
+            <h1>Title</h1>
+            <span>{movie.title}</span>
+          </div>
+          <div className="director-container">
+            <h3>Director</h3>
+            <span>{movie.director.name}</span>
+          </div>
+          <div className="genre-container">
+            <h3>Genre</h3>
+            <span>{movie.genre.name}</span>
+          </div>
         </div>
-        <div className="genre-container">
-          <h3>Genre</h3>
-          <span>{selectedMovie.genre.name}</span>
+
+        <div className="movie-view-description-container">
+          <h1>Description</h1>
+          <span>{movie.description}</span>
         </div>
       </div>
-
-      {/* description */}
-      <div className="movie-view-description-container">
-        <h1>Description</h1>
-        <span>{selectedMovie.description}</span>
-      </div>
-
-      {/* back button */}
-      <button onClick={onBackClick}>Go back</button>
-    </div>
+    )
   );
 };
 

@@ -1,4 +1,3 @@
-import "./LoginView.css";
 import { useState } from "react";
 
 const LoginView = () => {

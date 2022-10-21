@@ -1,4 +1,3 @@
-import "./RegistrationView.css";
 import { useState } from "react";
 
 const RegistrationView = () => {

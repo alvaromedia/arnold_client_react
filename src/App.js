@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 
 // components
 import MovieCard from "./components/MovieCard/MovieCard.js";
-import MovieView from "./components/MovieView/MovieView.js";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState("");
 
   const fetchMovies = async () => {
     const res = await fetch(
@@ -14,22 +12,12 @@ const App = () => {
     );
     const data = await res.json();
     setMovies(data);
+    console.log(data);
   };
 
   useEffect(() => {
     fetchMovies();
   }, []);
-
-  // set the value of 'selectedMovie' to an object
-  const onMovieClick = (movieParam) => {
-    console.log(movieParam);
-    setSelectedMovie(movieParam);
-  };
-
-  // set the value of 'selectedMovie' back to null so the MovieView component isn't rendered
-  const onBackClick = () => {
-    setSelectedMovie((prevState) => !prevState);
-  };
 
   if (!movies.length) {
     return (
@@ -46,17 +34,9 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {selectedMovie ? (
-        <MovieView selectedMovie={selectedMovie} onBackClick={onBackClick} />
-      ) : (
-        movies.map((movie) => (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-            onMovieClick={onMovieClick}
-          />
-        ))
-      )}
+      {movies.map((movie) => (
+        <MovieCard key={movie._id} movie={movie} />
+      ))}
     </div>
   );
 };

@@ -26,10 +26,14 @@
   text-align: center;
 }
 
+.movie-card-container a {
+  margin-top: auto;
+}
+
 .movie-card-details-button {
   color: #fff;
   font-family: inherit;
-  margin-top: auto;
+  /* margin-top: auto; */
   background-color: #000;
   transition: 200ms;
   cursor: pointer;
