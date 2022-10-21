@@ -1,12 +1,28 @@
+import "./LoginView.css";
 import { useState } from "react";
 
-const LoginView = () => {
+const LoginView = ({ setIsLogged }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password);
+
+    const res = await fetch(
+      "https://movierestapi-production.up.railway.app/api/users/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: username,
+          password: password,
+        }),
+      }
+    );
+
+    const data = await res.json();
+    console.log(data);
+    setIsLogged(data);
   };
 
   return (

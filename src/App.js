@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 
 // components
-import Navbar from "./components/Navbar";
-import LoginView from "./components/LoginView";
-import MovieCard from "./components/MovieCard";
-import MovieView from "./components/MovieView";
+import Navbar from "./components/Navbar/Navbar.js";
+import LoginView from "./components/LoginView/LoginView.js";
+import MovieCard from "./components/MovieCard/MovieCard.js";
+import MovieView from "./components/MovieView/MovieView.js";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(false);
-  const [isLogged, setIsLogged] = useState(true); // ! delete later
+  const [selectedMovie, setSelectedMovie] = useState("");
+  const [isLogged, setIsLogged] = useState(""); // ! delete later
 
   const fetchMovies = async () => {
     const res = await fetch(
@@ -34,45 +34,40 @@ const App = () => {
     setSelectedMovie((prevState) => !prevState);
   };
 
-  if (!movies.length) {
-    return (
-      <>
-        <Navbar />
-        <span>Loading</span>
-        <img
-          style={{ width: "30px", marginLeft: "1rem" }}
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
-          alt="spinner"
-        />
-      </>
-    );
-  }
-
-  if (!isLogged) {
-    return (
-      <>
-        <Navbar />
-        <LoginView />
-      </>
-    );
-  }
-
   return (
     <>
       <Navbar />
-      <div className="app-container">
-        {selectedMovie ? (
-          <MovieView selectedMovie={selectedMovie} onBackClick={onBackClick} />
-        ) : (
-          movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={onMovieClick}
+      {isLogged && !movies.length && (
+        <>
+          <span>Loading</span>
+          <img
+            style={{ width: "30px", marginLeft: "1rem" }}
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
+            alt="spinner"
+          />
+        </>
+      )}
+
+      {!isLogged && <LoginView setIsLogged={setIsLogged} />}
+
+      {isLogged && (
+        <div className="app-container">
+          {selectedMovie ? (
+            <MovieView
+              selectedMovie={selectedMovie}
+              onBackClick={onBackClick}
             />
-          ))
-        )}
-      </div>
+          ) : (
+            movies.map((movie) => (
+              <MovieCard
+                key={movie._id}
+                movie={movie}
+                onMovieClick={onMovieClick}
+              />
+            ))
+          )}
+        </div>
+      )}
     </>
   );
 };

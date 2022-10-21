@@ -1,3 +1,5 @@
+import "./MovieCard.css";
+
 const MovieCard = ({ movie, onMovieClick }) => {
   return (
     <div className="movie-card-container">

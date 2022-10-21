@@ -1,3 +1,5 @@
+import "./MovieView.css";
+
 const MovieView = ({ selectedMovie, onBackClick }) => {
   return (
     <div className="movie-view-container">

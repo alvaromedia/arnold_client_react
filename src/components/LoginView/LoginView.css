@@ -1,0 +1,31 @@
+/* login view component */
+form {
+  width: 22rem;
+  border-radius: 6px;
+  padding: 35px 15px 15px;
+  box-shadow: 0 8px 8px -4px var(--secondary-color);
+}
+
+form input {
+  height: 2rem;
+  width: 20rem;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+form button {
+  color: #fff;
+  font-family: inherit;
+  margin-top: auto;
+  background-color: #000;
+  transition: 200ms;
+  cursor: pointer;
+  padding: 0 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
+form button:hover {
+  scale: 1.1;
+}

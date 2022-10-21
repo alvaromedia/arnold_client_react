@@ -1,0 +1,43 @@
+/* MovieCard component */
+.movie-card-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background-color: #000;
+  transition: 200ms;
+}
+
+.movie-card-container:hover {
+  background-color: var(--primary-color);
+  scale: 1.05;
+}
+
+.movie-card-container img {
+  border-radius: 8px 8px 0 0;
+  border-bottom: 5px solid var(--primary-color);
+}
+
+.movie-card-title {
+  max-width: fit-content;
+  text-align: center;
+}
+
+.movie-card-details-button {
+  color: #fff;
+  font-family: inherit;
+  margin-top: auto;
+  background-color: #000;
+  transition: 200ms;
+  cursor: pointer;
+  padding: 0 1rem;
+  background: transparent;
+  border: none;
+}
+
+.movie-card-details-button:hover {
+  color: #000;
+}
