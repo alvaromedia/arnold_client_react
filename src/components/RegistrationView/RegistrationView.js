@@ -24,31 +24,41 @@ const RegistrationView = () => {
 
     const data = await res.json();
     console.log(data);
+    setUsername("");
+    setPassword("");
+    setEmail("");
   };
 
   return (
-    <div>
-      <form>
-        <label>
-          Username
-          <input type="text" onChange={(e) => setUsername(e.target.value)} />
-        </label>
+    <form>
+      <label>
+        Username
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </label>
 
-        <label>
-          Password
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
+      <label>
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </label>
 
-        <label>
-          Email
-          <input type="text" onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <button onSubmit={handleRegistration}>Register</button>
-      </form>
-    </div>
+      <label>
+        Email
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </label>
+      <button onClick={handleRegistration}>register</button>
+    </form>
   );
 };
 

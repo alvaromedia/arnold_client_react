@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 // components
-import Navbar from "./components/Navbar/Navbar.js";
 import MovieCard from "./components/MovieCard/MovieCard.js";
 import MovieView from "./components/MovieView/MovieView.js";
 
@@ -35,7 +34,6 @@ const App = () => {
   if (!movies.length) {
     return (
       <>
-        <Navbar />
         <span>Loading</span>
         <img
           style={{ width: "30px", marginLeft: "1rem" }}
@@ -47,22 +45,19 @@ const App = () => {
   }
 
   return (
-    <>
-      <Navbar />
-      <div className="app-container">
-        {selectedMovie ? (
-          <MovieView selectedMovie={selectedMovie} onBackClick={onBackClick} />
-        ) : (
-          movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={onMovieClick}
-            />
-          ))
-        )}
-      </div>
-    </>
+    <div className="app-container">
+      {selectedMovie ? (
+        <MovieView selectedMovie={selectedMovie} onBackClick={onBackClick} />
+      ) : (
+        movies.map((movie) => (
+          <MovieCard
+            key={movie._id}
+            movie={movie}
+            onMovieClick={onMovieClick}
+          />
+        ))
+      )}
+    </div>
   );
 };
 

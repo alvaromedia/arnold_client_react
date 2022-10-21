@@ -20,33 +20,32 @@ const LoginView = () => {
       }
     );
 
+    // the token is store in here
     const data = await res.json();
     console.log(data);
   };
 
   return (
-    <div>
-      <form>
-        <label>
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </label>
+    <form>
+      <label>
+        Username
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </label>
 
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-        <button onClick={handleSubmit}>Login</button>
-      </form>
-    </div>
+      <label>
+        Password
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </label>
+      <button onClick={handleSubmit}>Login</button>
+    </form>
   );
 };
 export default LoginView;
