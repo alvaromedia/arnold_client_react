@@ -1,7 +1,7 @@
 import "./LoginView.css";
 import { useState } from "react";
 
-const LoginView = ({ setIsLogged }) => {
+const LoginView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,25 +22,24 @@ const LoginView = ({ setIsLogged }) => {
 
     const data = await res.json();
     console.log(data);
-    setIsLogged(data);
   };
 
   return (
     <div>
-      <form action="">
-        <label htmlFor="username">
+      <form>
+        <label>
+          Username
           <input
             type="text"
-            id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
 
-        <label htmlFor="password">
+        <label>
+          Password
           <input
             type="password"
-            id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
