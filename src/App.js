@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 
 // components
+import Navbar from "./components/Navbar";
+import LoginView from "./components/LoginView";
 import MovieCard from "./components/MovieCard";
 import MovieView from "./components/MovieView";
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(false);
+  const [isLogged, setIsLogged] = useState(true); // ! delete later
 
   const fetchMovies = async () => {
     const res = await fetch(
@@ -34,19 +37,29 @@ const App = () => {
   if (!movies.length) {
     return (
       <>
-        <h1>ARNOLD API</h1>
-        <div className="app-container">
-          <div>
-            <h2>There are no available movies to display</h2>
-          </div>
-        </div>
+        <Navbar />
+        <span>Loading</span>
+        <img
+          style={{ width: "30px", marginLeft: "1rem" }}
+          src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"
+          alt="spinner"
+        />
+      </>
+    );
+  }
+
+  if (!isLogged) {
+    return (
+      <>
+        <Navbar />
+        <LoginView />
       </>
     );
   }
 
   return (
     <>
-      <h1>ARNOLD API</h1>
+      <Navbar />
       <div className="app-container">
         {selectedMovie ? (
           <MovieView selectedMovie={selectedMovie} onBackClick={onBackClick} />
