@@ -32,6 +32,12 @@
   border-top: 1px solid var(--secondary-color);
 }
 
+.movie-view .info .director span:hover,
+.movie-view .info .genre span:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
 .movie-view .description {
   background-color: #000;
   padding: 2rem;
