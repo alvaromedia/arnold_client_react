@@ -8,7 +8,6 @@ const Navbar = () => {
         <h1 className="navbar-title">ARNOLD API</h1>
       </Link>
       <ul className="navbar-list">
-        <li>Profile</li>
         <li>
           <Link to="/login"> Login</Link>
         </li>

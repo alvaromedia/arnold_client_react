@@ -1,5 +1,5 @@
 /* MovieCard component */
-.movie-card-container {
+.movie-card {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -11,26 +11,26 @@
   transition: 200ms;
 }
 
-.movie-card-container:hover {
+.movie-card:hover {
   background-color: var(--primary-color);
   scale: 1.05;
 }
 
-.movie-card-container img {
+.movie-card img {
   border-radius: 8px 8px 0 0;
   border-bottom: 5px solid var(--primary-color);
 }
 
-.movie-card-title {
+.movie-card .title {
   max-width: fit-content;
   text-align: center;
 }
 
-.movie-card-container a {
+.movie-card a {
   margin-top: auto;
 }
 
-.movie-card-details-button {
+.movie-card .details-button {
   color: #fff;
   font-family: inherit;
   /* margin-top: auto; */
@@ -42,6 +42,6 @@
   border: none;
 }
 
-.movie-card-details-button:hover {
+.movie-card .details-button:hover {
   color: #000;
 }

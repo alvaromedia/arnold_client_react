@@ -69,3 +69,7 @@ form button {
 form button:hover {
   scale: 1.1;
 }
+
+span {
+  font-size: 1.5rem;
+}

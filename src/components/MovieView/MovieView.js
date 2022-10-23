@@ -22,27 +22,27 @@ const MovieView = () => {
 
   return (
     movie && (
-      <div className="movie-view-container">
-        <div className="movie-view-image-container">
+      <div className="movie-view">
+        <div className="image">
           <img src={movie.imageUrl} alt={`${movie.title} poster`} />
         </div>
 
-        <div className="movie-view-info-container">
-          <div className="title-container">
+        <div className="info">
+          <div className="title">
             <h1>Title</h1>
             <span>{movie.title}</span>
           </div>
-          <div className="director-container">
+          <div className="director">
             <h3>Director</h3>
             <span>{movie.director.name}</span>
           </div>
-          <div className="genre-container">
+          <div className="genre">
             <h3>Genre</h3>
             <span>{movie.genre.name}</span>
           </div>
         </div>
 
-        <div className="movie-view-description-container">
+        <div className="description">
           <h1>Description</h1>
           <span>{movie.description}</span>
         </div>

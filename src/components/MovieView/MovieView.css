@@ -1,20 +1,20 @@
 /* MovieView component */
 
-.movie-view-container {
+.movie-view {
   max-width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
   display: flex;
 }
 
-.movie-view-image-container,
-.movie-view-info-container,
-.movie-view-description-container {
+.movie-view .image,
+.movie-view .info,
+.movie-view .description {
   border-radius: 4px;
   box-shadow: 0 8px 8px -4px var(--secondary-color);
 }
 
-.movie-view-info-container {
+.movie-view .info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -23,32 +23,28 @@
   padding: 1rem;
 }
 
-.movie-view-info-container h1,
-.movie-view-info-container h3 {
+.movie-view .info h1,
+.movie-view .info h3 {
   color: var(--secondary-color);
 }
 
-.movie-view-info-container span {
+.movie-view .info span {
   border-top: 1px solid var(--secondary-color);
 }
 
-.movie-view-description-container {
+.movie-view .description {
   background-color: #000;
   padding: 2rem;
 }
 
-.movie-view-description-container h1 {
+.movie-view .description h1 {
   color: var(--secondary-color);
   border-bottom: 1px solid var(--secondary-color);
   margin-bottom: 1rem;
 }
 
-span {
-  font-size: 1.5rem;
-}
-
 @media only screen and (max-width: 699px) {
-  .movie-view-container {
+  .movie-view {
     justify-content: center;
   }
 }
