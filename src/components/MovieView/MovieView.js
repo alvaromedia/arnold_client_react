@@ -42,7 +42,7 @@ const MovieView = () => {
           </div>
           <div className="director">
             <h3>Director</h3>
-            <span onClick={handleModal}>{movie.director.name}</span>
+            <span onClick={handleModal}>{movie.director.name} +</span>
           </div>
           <div className="genre">
             <h3>Genre</h3>
@@ -65,7 +65,7 @@ const MovieView = () => {
               <h2>Birth - {new Date(movie.director.birth).toDateString()}</h2>
               <h2>
                 Death -{" "}
-                {movie.director.deatch
+                {movie.director.death
                   ? new Date(movie.director.death).toDateString()
                   : ""}
               </h2>

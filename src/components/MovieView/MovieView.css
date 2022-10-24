@@ -32,8 +32,7 @@
   border-top: 1px solid var(--secondary-color);
 }
 
-.movie-view .info .director span:hover,
-.movie-view .info .genre span:hover {
+.movie-view .info .director span:hover {
   color: var(--secondary-color);
   cursor: pointer;
 }
