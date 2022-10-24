@@ -1,8 +1,16 @@
 import { useState } from "react";
+import { useContext } from "react";
+import AuthContext from "../AuthContext";
 
 const LoginView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  // State to check if the login credentials are invalid
+  const [error, setError] = useState(null);
+
+  // context
+  const { setCurrentUser } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,10 +27,28 @@ const LoginView = () => {
       }
     );
 
-    // the token is store in here
     const data = await res.json();
     console.log(data);
+
+    if (data.error) {
+      setUsername("");
+      setPassword("");
+      setError(data.error);
+    }
+
+    localStorage.setItem("userID", data.user._id);
+    localStorage.setItem("token", data.token);
+    setCurrentUser(data.user.name);
   };
+
+  if (error) {
+    return (
+      <div>
+        <h1 style={{ color: "red" }}>INVALID CREDENTIALS</h1>
+        <p>Please reload the page</p>
+      </div>
+    );
+  }
 
   return (
     <form>

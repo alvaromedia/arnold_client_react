@@ -5,6 +5,10 @@ const RegistrationView = () => {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
+  const [error, setError] = useState(null);
+
+  const [registration, setRegistration] = useState(null);
+
   const handleRegistration = async (e) => {
     e.preventDefault();
 
@@ -23,10 +27,39 @@ const RegistrationView = () => {
 
     const data = await res.json();
     console.log(data);
+
+    if (data.error) {
+      setError(data.error);
+    }
+
+    if (data.name) {
+      setRegistration(true);
+    }
+
     setUsername("");
     setPassword("");
     setEmail("");
   };
+
+  if (error) {
+    return (
+      <div>
+        <h1 style={{ color: "red" }}>INVALID REGISTRATION DATA</h1>
+        <p>Username must be at least 6 characters long</p>
+        <p>Password must be at least 6 characters long</p>
+        <p>Please reload the page</p>
+      </div>
+    );
+  }
+
+  if (registration) {
+    return (
+      <div>
+        <h1>Registration processed successfully</h1>
+        <p>Please proceed to login</p>
+      </div>
+    );
+  }
 
   return (
     <form>
