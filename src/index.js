@@ -32,10 +32,7 @@ const Index = () => {
               element={currentUser ? <Navigate to="/" /> : <LoginView />}
             />
             <Route path="/register" element={<RegistrationView />} />
-            <Route
-              path="/movies/:id"
-              element={!currentUser ? <Navigate to="/" /> : <MovieView />}
-            />
+            <Route path="/movies/:id" element={<MovieView />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </Router>

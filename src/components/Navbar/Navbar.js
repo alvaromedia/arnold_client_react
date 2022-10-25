@@ -1,15 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../AuthContext";
 import "./Navbar.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 const Navbar = () => {
   const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.clear();
   };
+
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/");
+    }
+  }, [currentUser]);
 
   return (
     <header className="navbar-view">

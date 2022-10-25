@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import AuthContext from "../AuthContext";
 
 const LoginView = () => {
@@ -36,12 +35,18 @@ const LoginView = () => {
       setError(data.error);
     }
 
-    localStorage.setItem("userID", data.user._id);
-    localStorage.setItem("token", data.token);
-    setCurrentUser(data.user.name);
+    if (data.user) {
+      localStorage.setItem("userID", data.user._id);
+      localStorage.setItem("token", data.token);
+      setCurrentUser(data.user.name);
+    }
   };
 
   if (error) {
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 3000);
+
     return (
       <div>
         <h1 style={{ color: "red" }}>INVALID CREDENTIALS</h1>

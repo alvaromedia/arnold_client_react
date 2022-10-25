@@ -6,7 +6,6 @@ const RegistrationView = () => {
   const [email, setEmail] = useState("");
 
   const [error, setError] = useState(null);
-
   const [registration, setRegistration] = useState(null);
 
   const handleRegistration = async (e) => {
@@ -42,11 +41,14 @@ const RegistrationView = () => {
   };
 
   if (error) {
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 3000);
     return (
       <div>
         <h1 style={{ color: "red" }}>INVALID REGISTRATION DATA</h1>
-        <p>Username must be at least 6 characters long</p>
-        <p>Password must be at least 6 characters long</p>
+        <h3>Username must be at least 3 characters long</h3>
+        <h3>Password must be at least 6 characters long</h3>
         <p>Please reload the page</p>
       </div>
     );
@@ -89,7 +91,8 @@ const RegistrationView = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
-      <button onClick={handleRegistration}>register</button>
+
+      <button onClick={handleRegistration}>Register</button>
     </form>
   );
 };
