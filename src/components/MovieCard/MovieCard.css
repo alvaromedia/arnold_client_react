@@ -9,6 +9,7 @@
   border-radius: 8px;
   background-color: #000;
   transition: 200ms;
+  max-width: 250px;
 }
 
 .movie-card:hover {
